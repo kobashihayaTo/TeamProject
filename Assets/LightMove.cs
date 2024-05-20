@@ -6,8 +6,8 @@ public class LightMove : MonoBehaviour
 {
     Light playerlight;
 
-    int Timer = 500;
     float Lightsource = 0.01f;
+    bool lightFlag = false;
 
     void Start()
     {
@@ -16,15 +16,21 @@ public class LightMove : MonoBehaviour
 
     void Update()
     {
-        Timer--;
-
-        //if(Timer <= 500)
-        //{
-        //    playerlight.intensity -= Lightsource;
-        //}
-        //else if(Timer < 0)
-        //{
-        //    playerlight.intensity = 0.0f;
-        //}
+        playerlight.intensity -= 0.001f;
+        if (Input.GetKey(KeyCode.F))
+        {
+            playerlight.intensity += 0.02f;
+            lightFlag = true;
+        }
+        else
+        {
+            lightFlag = false;
+        }
     }
+
+    public bool GetLightFlag()
+    {
+        return lightFlag;
+    }
+
 }

@@ -9,7 +9,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é•Ï”
 
-    int battery1Flag=0;
+    int battery1Flag = 0;
     int battery2Flag = 0;
     int battery3Flag = 0;
     int battery4Flag = 0;

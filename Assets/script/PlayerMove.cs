@@ -6,13 +6,15 @@ public class PlayerMove : MonoBehaviour
 {
     float speed = 5.0f;
     Rigidbody rb;
+
+    [SerializeField]
     LightMove lightmove;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();  // rigidbody‚ðŽæ“¾ 
-        //lightmove = GetComponent<LightMove>();
+        
     }
 
     // Update is called once per frame

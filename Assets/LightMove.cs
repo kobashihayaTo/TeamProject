@@ -19,12 +19,17 @@ public class LightMove : MonoBehaviour
         playerlight.intensity -= 0.001f;
         if (Input.GetKey(KeyCode.F))
         {
-            playerlight.intensity += 0.02f;
+            playerlight.intensity += 0.002f;
             lightFlag = true;
         }
         else
         {
             lightFlag = false;
+        }
+
+        if (playerlight.intensity > 1)
+        {
+            playerlight.intensity = 1;
         }
     }
 

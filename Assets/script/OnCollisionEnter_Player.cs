@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class OnCollisionEnter_Player : MonoBehaviour
 {
     public RepairTimerManger RepairManger;
+    public Bloom bloom;
+    public PostProcessVolume postVolume;
 
     private int Status;  //準備ができたかどうかを判断する変数
 
@@ -32,6 +35,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
             if (Status == 0)
             {
                 RepairManger.RepairTimer += 1;  //スコア加算していく数字
+                
             }
 
             if (RepairManger.RepairTimer > 100) 
@@ -106,7 +110,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
     void Start()
     {
         Status = 0;  //0だったらCllisionのif文が実行される
-
+        bloom=GetComponent<Bloom>();
        
     }
 

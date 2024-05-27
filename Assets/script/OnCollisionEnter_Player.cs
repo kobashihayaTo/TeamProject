@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class OnCollisionEnter_Player : MonoBehaviour
 {
     public RepairTimerManger RepairManger;
-    public Bloom bloom;
-    public PostProcessVolume postVolume;
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é•Ï”
 
@@ -110,8 +107,6 @@ public class OnCollisionEnter_Player : MonoBehaviour
     void Start()
     {
         Status = 0;  //0‚¾‚Á‚½‚çCllision‚Ìif•¶‚ªÀs‚³‚ê‚é
-        bloom=GetComponent<Bloom>();
-       
     }
 
 }

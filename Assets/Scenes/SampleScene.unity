@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 1
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -323,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153043434}
   - component: {fileID: 153043433}
+  - component: {fileID: 153043435}
   m_Layer: 0
   m_Name: Post
   m_TagString: Untagged
@@ -361,6 +362,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153043435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153043432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43947f8f6680cc74ea93f80606d10d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloom: {fileID: 0}
+  postProcessProfile: {fileID: 0}
 --- !u!1 &223323935
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -688,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -422.8, y: 274}
+  m_AnchoredPosition: {x: -318.8, y: 274}
   m_SizeDelta: {x: 173.58, y: 51.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705507993
@@ -1673,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 1804706645093902466, guid: 01979f0df0132724390e49cb87064e5f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0c2d7581cddf8e94b94387a51b7a3246, type: 2}
+      objectReference: {fileID: 2100000, guid: f5d8b056f8177964fbf9d68ac118ac62, type: 2}
     - target: {fileID: 1804706645093902468, guid: 01979f0df0132724390e49cb87064e5f, type: 3}
       propertyPath: m_Name
       value: battery-1

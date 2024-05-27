@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LightMove : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class LightMove : MonoBehaviour
 
     float Lightsource = 0.01f;
     bool lightFlag = false;
+    bool deathFlag = false;
 
     void Start()
     {
@@ -16,15 +18,24 @@ public class LightMove : MonoBehaviour
 
     void Update()
     {
-        playerlight.intensity -= 0.001f;
+        playerlight.intensity -= 0.0001f;
         if (Input.GetKey(KeyCode.F))
         {
-            playerlight.intensity += 0.002f;
+            playerlight.intensity += 0.0002f;
             lightFlag = true;
         }
         else
         {
             lightFlag = false;
+        }
+
+        if (playerlight.intensity <= 0) 
+        {
+            deathFlag = true;
+        }
+        else
+        {
+            deathFlag = false;
         }
 
         if (playerlight.intensity > 1)
@@ -33,9 +44,22 @@ public class LightMove : MonoBehaviour
         }
     }
 
+    void Scene()
+    {
+        if (deathFlag == true) 
+        {
+            Debug.Log("ƒ`ƒFƒ“ƒW");
+            SceneManager.LoadScene("ClearScene");
+        }
+    }
+
     public bool GetLightFlag()
     {
         return lightFlag;
+    }
+    public bool GetDeathFlag()
+    {
+        return deathFlag;
     }
 
 }

@@ -28,7 +28,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         #region battery
         if (collision.gameObject.name == "battery-1")
         {
-            Debug.Log("“–‚½‚Á‚½!");
+            //Debug.Log("“–‚½‚Á‚½!");
             if (Status == 0)
             {
                 RepairManger.RepairTimer += 1;  //ƒXƒRƒA‰ÁZ‚µ‚Ä‚¢‚­”š

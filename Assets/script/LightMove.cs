@@ -14,10 +14,13 @@ public class LightMove : MonoBehaviour
     bool lightFlag = false;
     bool deathFlag = false;
 
-    void Start()
+    void Scene()
     {
-        //playerlight = GetComponent<Light>();
-        //spotLightManeger = GetComponent<SpotLightManeger>();
+        if (deathFlag == true)
+        {
+            Debug.Log("チェンジ");
+            SceneManager.LoadScene("OverScene");
+        }
     }
 
     void Update()
@@ -36,9 +39,10 @@ public class LightMove : MonoBehaviour
             lightFlag = false;
         }
 
-        if (playerlight.intensity <= 0) 
+        if (playerlight.intensity == 0) 
         {
             deathFlag = true;
+
         }
         else
         {
@@ -49,16 +53,10 @@ public class LightMove : MonoBehaviour
         {
             playerlight.intensity = 1;
         }
+        Scene();
     }
 
-    void Scene()
-    {
-        if (deathFlag == true) 
-        {
-            Debug.Log("チェンジ");
-            SceneManager.LoadScene("ClearScene");
-        }
-    }
+    
 
     public bool GetLightFlag()
     {

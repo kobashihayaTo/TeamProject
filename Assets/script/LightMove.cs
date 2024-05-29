@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LightMove : MonoBehaviour
 {
+    [SerializeField]
     Light playerlight;
+    [SerializeField]
+    SpotLightManeger spotLightManeger;
 
     float Lightsource = 0.01f;
     bool lightFlag = false;
@@ -13,15 +16,19 @@ public class LightMove : MonoBehaviour
 
     void Start()
     {
-        playerlight = GetComponent<Light>();
+        //playerlight = GetComponent<Light>();
+        //spotLightManeger = GetComponent<SpotLightManeger>();
     }
 
     void Update()
     {
-        playerlight.intensity -= 0.0001f;
+
+        playerlight.intensity -= 0.001f;
+        spotLightManeger.SpotTimer = playerlight.intensity;
         if (Input.GetKey(KeyCode.F))
         {
-            playerlight.intensity += 0.0002f;
+            playerlight.intensity += 0.002f;
+            
             lightFlag = true;
         }
         else

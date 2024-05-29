@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     LightMove lightmove;
 
+
     // Start is called before the first frame update
     void Start()
     {

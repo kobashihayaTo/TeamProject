@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class SpotLightManeger : MonoBehaviour
 {
 
-    public int SpotTimer = 0; //変数
+    public float SpotTimer; //変数
     public Text spottext;
-    // Start is called before the first frame update
+  
     void Start()
     {
-        SpotTimer = 0;
+        SpotTimer = 0.0f;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         spottext.text = string.Format("{0}", SpotTimer);  //Textのフォーマット

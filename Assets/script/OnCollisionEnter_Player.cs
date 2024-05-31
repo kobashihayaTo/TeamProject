@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class OnCollisionEnter_Player : MonoBehaviour
 {
     public RepairTimerManger RepairManger;
+    [SerializeField]
+    public SpotLightScript spotLightScript;
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é•Ï”
 
@@ -25,9 +27,12 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
+       // spotLightScript.SetspotlightFlag(false);
         #region battery
         if (collision.gameObject.name == "battery-1")
         {
+            spotLightScript.SetspotlightFlag(true);
+
             //Debug.Log("“–‚½‚Á‚½!");
             if (Status == 0)
             {
@@ -43,6 +48,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         if (collision.gameObject.name == "battery-2")
         {
             Debug.Log("“–‚½‚Á‚½!");
+            spotLightScript.SetspotlightFlag(true);
             if (Status == 0)
             {
                 RepairManger.RepairTimer2 += 1;  //ƒXƒRƒA‰ÁZ‚µ‚Ä‚¢‚­”š
@@ -54,6 +60,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-3")
         {
+            spotLightScript.SetspotlightFlag(true);
             Debug.Log("“–‚½‚Á‚½!");
             if (Status == 0)
             {

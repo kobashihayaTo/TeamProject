@@ -31,7 +31,7 @@ public class EnemyMove : MonoBehaviour
 
     void NextGoal()
     {
-        destNum += 1;
+        destNum = Random.Range(0,3);
 
         if(destNum == 3)
         {

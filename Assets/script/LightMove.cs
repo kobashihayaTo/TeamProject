@@ -30,7 +30,7 @@ public class LightMove : MonoBehaviour
         spotLightManeger.SpotTimer = playerlight.intensity;
         if (Input.GetKey(KeyCode.F))
         {
-            playerlight.intensity += 0.002f;
+            playerlight.intensity += 0.2f;
             
             lightFlag = true;
         }
@@ -41,14 +41,14 @@ public class LightMove : MonoBehaviour
 
         if (playerlight.intensity == 0) 
         {
-            deathFlag = true;
+            //deathFlag = true;
 
         }
         else
         {
             deathFlag = false;
         }
-
+        //‹­“x•Ï‚¦‚½‚¢‚Æ‚«‚Í‚±‚±‚Ì”š‚ğ‚¢‚¶‚Á‚Ä
         if (playerlight.intensity > 1)
         {
             playerlight.intensity = 1;

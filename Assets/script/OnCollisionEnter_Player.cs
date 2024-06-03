@@ -8,6 +8,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public RepairTimerManger RepairManger;
     [SerializeField]
     public SpotLightScript spotLightScript;
+    [SerializeField]
+    public SpotLightScript_2 spotLightScript_2;
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é•Ï”
 
@@ -27,7 +29,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-       // spotLightScript.SetspotlightFlag(false);
+            spotLightScript.SetspotlightFlag(false);
+        spotLightScript_2.SetspotlightFlag_2(false);
         #region battery
         if (collision.gameObject.name == "battery-1")
         {
@@ -47,8 +50,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-2")
         {
-            Debug.Log("“–‚½‚Á‚½!");
-            spotLightScript.SetspotlightFlag(true);
+            spotLightScript_2.SetspotlightFlag_2(true);
             if (Status == 0)
             {
                 RepairManger.RepairTimer2 += 1;  //ƒXƒRƒA‰ÁZ‚µ‚Ä‚¢‚­”š

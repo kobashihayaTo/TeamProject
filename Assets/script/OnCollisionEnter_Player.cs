@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class OnCollisionEnter_Player : MonoBehaviour
 {
     public RepairTimerManger RepairManger;
+
     [SerializeField]
     public SpotLightScript spotLightScript;
     [SerializeField]
     public SpotLightScript_2 spotLightScript_2;
+    [SerializeField] 
+    public SpotLightScript_3 spotLightScript_3;
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é•Ï”
 
@@ -62,7 +65,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-3")
         {
-            spotLightScript.SetspotlightFlag(true);
+            spotLightScript_3.SetspotlightFlag_3(true);
             Debug.Log("“–‚½‚Á‚½!");
             if (Status == 0)
             {

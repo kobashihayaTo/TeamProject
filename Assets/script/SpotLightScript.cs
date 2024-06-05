@@ -17,9 +17,9 @@ public class SpotLightScript : MonoBehaviour
     bool spotlightFlag_1;
 
     //ƒ‰ƒCƒg‚ÌŒÂ”
-    public float spotLightIntensity1;
-    public float spotLightIntensity2;
-    public float spotLightIntensity3;
+    public float spotLightIntensity1_1;
+    public float spotLightIntensity1_2;
+    public float spotLightIntensity1_3;
 
     void Start()
     {
@@ -37,17 +37,17 @@ public class SpotLightScript : MonoBehaviour
             
         }
 
-        if (spotlight1.intensity >= spotLightIntensity1) 
+        if (spotlight1.intensity >= spotLightIntensity1_1) 
         {
-            spotlight1.intensity = spotLightIntensity1;
+            spotlight1.intensity = spotLightIntensity1_1;
         }
-        if (spotlight2.intensity >= spotLightIntensity2)
+        if (spotlight2.intensity >= spotLightIntensity1_2)
         {
-            spotlight2.intensity = spotLightIntensity2;
+            spotlight2.intensity = spotLightIntensity1_2;
         }
-        if (spotlight3.intensity >= spotLightIntensity3)
+        if (spotlight3.intensity >= spotLightIntensity1_3)
         {
-            spotlight3.intensity = spotLightIntensity3;
+            spotlight3.intensity = spotLightIntensity1_3;
         }
 
     }

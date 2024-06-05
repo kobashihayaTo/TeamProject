@@ -10,6 +10,8 @@ public class EnemyMove : MonoBehaviour
 
     private int destNum = 0;
 
+    private int randomPatrol = 0;
+
     public NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -18,6 +20,8 @@ public class EnemyMove : MonoBehaviour
         //agent = GetComponent<NavMeshAgent>();
 
         agent.destination = goals[destNum].position;
+
+        //randomPatrol = destNum;
     }
 
     // Update is called once per frame

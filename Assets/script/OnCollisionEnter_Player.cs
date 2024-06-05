@@ -13,6 +13,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public SpotLightScript_2 spotLightScript_2;
     [SerializeField] 
     public SpotLightScript_3 spotLightScript_3;
+    [SerializeField]
+    public SpotLightScript_4 spotLightScript_4;
 
     private int Status;  //準備ができたかどうかを判断する変数
 
@@ -23,7 +25,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
     void Scene()
     {
-        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1)
+        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1) 
         {
             Debug.Log("チェンジ");
             SceneManager.LoadScene("ClearScene");
@@ -32,9 +34,14 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-            spotLightScript.SetspotlightFlag(false);
-        spotLightScript_2.SetspotlightFlag_2(false);
         #region battery
+
+        spotLightScript.SetspotlightFlag(false);
+        spotLightScript_2.SetspotlightFlag_2(false);
+        spotLightScript_3.SetspotlightFlag_3(false);
+        spotLightScript_4.SetspotlightFlag_4(false);
+
+        
         if (collision.gameObject.name == "battery-1")
         {
             spotLightScript.SetspotlightFlag(true);
@@ -49,6 +56,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
             if (RepairManger.RepairTimer > 100) 
             {
                 battery1Flag = 1;
+                RepairManger.RepairTimer = 100;
             }
         }
         if (collision.gameObject.name == "battery-2")
@@ -60,6 +68,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
                 if (RepairManger.RepairTimer2 > 100)
                 {
                     battery2Flag = 1;
+                    RepairManger.RepairTimer2 = 100;
                 }
             }
         }
@@ -75,19 +84,22 @@ public class OnCollisionEnter_Player : MonoBehaviour
             if (RepairManger.RepairTimer3 > 100)
             {
                 battery3Flag = 1;
+                RepairManger.RepairTimer3 = 100;
             }
         }
         if (collision.gameObject.name == "battery-4")
         {
+            spotLightScript_4.SetspotlightFlag_4(true);
             Debug.Log("当たった!");
             if (Status == 0)
             {
-                RepairManger.RepairTimer += 1;  //スコア加算していく数字
+                RepairManger.RepairTimer4 += 1;  //スコア加算していく数字
 
             }
-            if (RepairManger.RepairTimer > 100)
+            if (RepairManger.RepairTimer4 > 100)
             {
                 battery4Flag = 1;
+                RepairManger.RepairTimer4 = 100;
             }
         }
         if (collision.gameObject.name == "battery-5")
@@ -110,7 +122,16 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         #endregion
 
-        Scene();
+        #region enemy
+
+        if (collision.gameObject.tag == "enemy")
+        {
+            Debug.Log("うんちょこちょこちょこぴー!");
+        }
+
+            #endregion
+
+            Scene();
     }
 
 

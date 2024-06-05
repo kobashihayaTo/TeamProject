@@ -10,10 +10,12 @@ public class RepairTimerManger : MonoBehaviour
     public int RepairTimer = 0; //変数
     public int RepairTimer2 = 0; //変数
     public int RepairTimer3 = 0; //変数
+    public int RepairTimer4 = 0; //変数
 
     public Text repair;
     public Text repair2;
     public Text repair3;
+    public Text repair4;
 
     // 初期化
     void Start()
@@ -21,6 +23,7 @@ public class RepairTimerManger : MonoBehaviour
         RepairTimer = 0;
         RepairTimer2 = 0;
         RepairTimer3 = 0;
+        RepairTimer4 = 0;
     }
     // 更新
     void Update()
@@ -28,6 +31,7 @@ public class RepairTimerManger : MonoBehaviour
         repair.text = string.Format("{0}", RepairTimer);  //Textのフォーマット
         repair2.text = string.Format("{0}", RepairTimer2);  //Textのフォーマット
         repair3.text = string.Format("{0}", RepairTimer3);  //Textのフォーマット
+        repair4.text = string.Format("{0}", RepairTimer4);  //Textのフォーマット
     }
 
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,14 +24,19 @@ public class OnCollisionEnter_Player : MonoBehaviour
     int battery3Flag = 0;
     int battery4Flag = 0;
 
-    void Scene()
+    void ClearScene()
     {
         if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1) 
         {
-            Debug.Log("チェンジ");
             SceneManager.LoadScene("ClearScene");
         }
     }
+
+    void OverScene()
+    {
+        SceneManager.LoadScene("OverScene");
+    }
+
 
     void OnCollisionStay(Collision collision)
     {
@@ -75,7 +81,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         if (collision.gameObject.name == "battery-3")
         {
             spotLightScript_3.SetspotlightFlag_3(true);
-            Debug.Log("当たった!");
+            //Debug.Log("当たった!");
             if (Status == 0)
             {
                 RepairManger.RepairTimer3 += 1;  //スコア加算していく数字
@@ -90,7 +96,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         if (collision.gameObject.name == "battery-4")
         {
             spotLightScript_4.SetspotlightFlag_4(true);
-            Debug.Log("当たった!");
+            //Debug.Log("当たった!");
             if (Status == 0)
             {
                 RepairManger.RepairTimer4 += 1;  //スコア加算していく数字
@@ -104,7 +110,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-5")
         {
-            Debug.Log("当たった!");
+            //Debug.Log("当たった!");
             if (Status == 0)
             {
                 RepairManger.RepairTimer += 1;  //スコア加算していく数字
@@ -113,7 +119,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-6")
         {
-            Debug.Log("当たった!");
+            //Debug.Log("当たった!");
             if (Status == 0)
             {
                 RepairManger.RepairTimer += 1;  //スコア加算していく数字
@@ -121,19 +127,21 @@ public class OnCollisionEnter_Player : MonoBehaviour
             }
         }
         #endregion
-
-        #region enemy
-
-        if (collision.gameObject.tag == "enemy")
-        {
-            Debug.Log("うんちょこちょこちょこぴー!");
-        }
-
-            #endregion
-
-            Scene();
+        ClearScene();
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        #region enemy
+
+        if (other.gameObject.tag == "enemy")
+        {
+            //Debug.Log("うんちょこちょこちょこぴー!");
+            OverScene();
+        }
+
+        #endregion
+    }
 
 
     // Start is called before the first frame update

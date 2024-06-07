@@ -327,6 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1250095739}
   - component: {fileID: 1250095738}
+  - component: {fileID: 1250095740}
   m_Layer: 0
   m_Name: ChangeScene
   m_TagString: Untagged
@@ -360,6 +361,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1250095740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250095737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043d889b28dee19449ac4983fe8558af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1332383950
 GameObject:
   m_ObjectHideFlags: 0

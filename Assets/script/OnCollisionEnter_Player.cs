@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//UI使うときは忘れずに。
+using UnityEngine.UI;
 
 public class OnCollisionEnter_Player : MonoBehaviour
 {
-    public RepairTimerManger RepairManger;
-
     [SerializeField]
     public SpotLightScript spotLightScript;
     [SerializeField]
@@ -16,6 +16,16 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public SpotLightScript_3 spotLightScript_3;
     [SerializeField]
     public SpotLightScript_4 spotLightScript_4;
+
+    //HPのUI
+    [SerializeField]
+    Canvas canvas;
+
+    public Slider slider;
+    public Slider slider2;
+    public Slider slider3;
+    public Slider slider4;
+
 
     private int Status;  //準備ができたかどうかを判断する変数
 
@@ -37,7 +47,6 @@ public class OnCollisionEnter_Player : MonoBehaviour
         SceneManager.LoadScene("OverScene");
     }
 
-
     void OnCollisionStay(Collision collision)
     {
         #region battery
@@ -52,79 +61,58 @@ public class OnCollisionEnter_Player : MonoBehaviour
         {
             spotLightScript.SetspotlightFlag(true);
 
-            //Debug.Log("当たった!");
-            if (Status == 0)
-            {
-                RepairManger.RepairTimer += 1;  //スコア加算していく数字
-                
-            }
+            slider.value += 0.01f;
 
-            if (RepairManger.RepairTimer > 100) 
+            if (slider.value >= 1)
             {
                 battery1Flag = 1;
-                RepairManger.RepairTimer = 100;
+                slider.value = 1;
             }
         }
         if (collision.gameObject.name == "battery-2")
         {
             spotLightScript_2.SetspotlightFlag_2(true);
-            if (Status == 0)
+
+            slider2.value += 0.01f;
+
+            if (slider2.value >= 1)
             {
-                RepairManger.RepairTimer2 += 1;  //スコア加算していく数字
-                if (RepairManger.RepairTimer2 > 100)
-                {
-                    battery2Flag = 1;
-                    RepairManger.RepairTimer2 = 100;
-                }
+                
+                battery2Flag = 1;
+                slider2.value = 1;
             }
         }
         if (collision.gameObject.name == "battery-3")
         {
             spotLightScript_3.SetspotlightFlag_3(true);
-            //Debug.Log("当たった!");
-            if (Status == 0)
-            {
-                RepairManger.RepairTimer3 += 1;  //スコア加算していく数字
+            slider3.value += 0.01f;
 
-            }
-            if (RepairManger.RepairTimer3 > 100)
+            if (slider3.value >= 1)
             {
                 battery3Flag = 1;
-                RepairManger.RepairTimer3 = 100;
+                slider3.value = 1;
             }
         }
         if (collision.gameObject.name == "battery-4")
         {
             spotLightScript_4.SetspotlightFlag_4(true);
-            //Debug.Log("当たった!");
-            if (Status == 0)
-            {
-                RepairManger.RepairTimer4 += 1;  //スコア加算していく数字
+            slider4.value += 0.01f;
 
-            }
-            if (RepairManger.RepairTimer4 > 100)
+            if (slider4.value >= 1)
             {
                 battery4Flag = 1;
-                RepairManger.RepairTimer4 = 100;
+                slider4.value = 1;
             }
         }
+
         if (collision.gameObject.name == "battery-5")
         {
-            //Debug.Log("当たった!");
-            if (Status == 0)
-            {
-                RepairManger.RepairTimer += 1;  //スコア加算していく数字
-
-            }
+            
         }
         if (collision.gameObject.name == "battery-6")
         {
             //Debug.Log("当たった!");
-            if (Status == 0)
-            {
-                RepairManger.RepairTimer += 1;  //スコア加算していく数字
-
-            }
+            
         }
         #endregion
         ClearScene();
@@ -136,18 +124,31 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
         if (other.gameObject.tag == "enemy")
         {
-            //Debug.Log("うんちょこちょこちょこぴー!");
             OverScene();
         }
 
         #endregion
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.name == "MoveFirstFloor")
+        {
+            canvas.enabled = false;
+        }
+        if (collider.gameObject.name == "MoveSecondFloor")
+        {
+            canvas.enabled = true;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Status = 0;  //0だったらCllisionのif文が実行される
+        slider.value = 0;
+        slider2.value = 0;
+        slider3.value = 0;
+        slider4.value = 0;
     }
 
 }

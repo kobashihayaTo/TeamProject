@@ -57,7 +57,7 @@ public class LightMove : MonoBehaviour
 
         if (playerlight.intensity == 0) 
         {
-            deathFlag = true;
+            //deathFlag = true;
 
         }
         else

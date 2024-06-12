@@ -21,6 +21,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
     [SerializeField]
     Canvas canvas;
 
+
     public Slider slider;
     public Slider slider2;
     public Slider slider3;
@@ -47,6 +48,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         SceneManager.LoadScene("OverScene");
     }
 
+    //バッテリーの当たり判定
     void OnCollisionStay(Collision collision)
     {
         #region battery
@@ -117,7 +119,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         #endregion
         ClearScene();
     }
-
+    //敵との当たり判定
     private void OnTriggerStay(Collider other)
     {
         #region enemy
@@ -129,7 +131,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
         #endregion
     }
-
+    //次の階層行くときのゲージ
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "MoveFirstFloor")

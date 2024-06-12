@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LightMove : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class LightMove : MonoBehaviour
     Light playerlight;
     [SerializeField]
     SpotLightManeger spotLightManeger;
+    [SerializeField]
+    public Slider playerSlider;
 
-    float Lightsource = 0.01f;
     bool lightFlag = false;
     bool deathFlag = false;
 
@@ -23,25 +25,39 @@ public class LightMove : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        playerlight.intensity = 1.0f;
+        playerSlider.value = 1.0f;
+    }
+
     void Update()
     {
-
-        playerlight.intensity -= 0.001f;
-        spotLightManeger.SpotTimer = playerlight.intensity;
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F)|| Input.GetKey(KeyCode.Return))
         {
-            playerlight.intensity += 0.2f;
-            
+            playerlight.intensity += 0.002f;
+            playerSlider.value += 0.002f;
             lightFlag = true;
         }
         else
         {
             lightFlag = false;
+            playerSlider.value -= 0.001f;
+            playerlight.intensity -= 0.001f;
+        }
+
+        if(playerlight.intensity==1)
+        {
+            Debug.Log("1‚É‚È‚Á‚½");
+        }
+        if (playerSlider.value==1) 
+        {
+            Debug.Log("2‚É‚È‚Á‚½");
         }
 
         if (playerlight.intensity == 0) 
         {
-            //deathFlag = true;
+            deathFlag = true;
 
         }
         else
@@ -49,7 +65,7 @@ public class LightMove : MonoBehaviour
             deathFlag = false;
         }
         //‹­“x•Ï‚¦‚½‚¢‚Æ‚«‚Í‚±‚±‚Ì”š‚ğ‚¢‚¶‚Á‚Ä
-        if (playerlight.intensity > 1)
+        if (playerlight.intensity >= 1)
         {
             playerlight.intensity = 1;
         }

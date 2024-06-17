@@ -27,7 +27,7 @@ public class LightMove : MonoBehaviour
 
     void Start()
     {
-        playerlight.intensity = 1.0f;
+        playerlight.intensity = 20.0f;
         playerSlider.value = 1.0f;
     }
 
@@ -35,7 +35,7 @@ public class LightMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F)|| Input.GetKey(KeyCode.Return))
         {
-            playerlight.intensity += 0.002f;
+            playerlight.intensity += 0.02f;
             playerSlider.value += 0.002f;
             lightFlag = true;
         }
@@ -43,7 +43,7 @@ public class LightMove : MonoBehaviour
         {
             lightFlag = false;
             playerSlider.value -= 0.001f;
-            playerlight.intensity -= 0.001f;
+            playerlight.intensity -= 0.02f;
         }
 
         if(playerlight.intensity==1)
@@ -65,9 +65,9 @@ public class LightMove : MonoBehaviour
             deathFlag = false;
         }
         //‹­“x•Ï‚¦‚½‚¢‚Æ‚«‚Í‚±‚±‚Ì”š‚ğ‚¢‚¶‚Á‚Ä
-        if (playerlight.intensity >= 1)
+        if (playerlight.intensity >= 20)
         {
-            playerlight.intensity = 1;
+            playerlight.intensity = 20;
         }
         Scene();
     }

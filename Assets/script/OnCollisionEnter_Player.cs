@@ -16,16 +16,21 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public SpotLightScript_3 spotLightScript_3;
     [SerializeField]
     public SpotLightScript_4 spotLightScript_4;
-
+    [SerializeField]
+    public SpotLightScript_5 spotLightScript_5;
     //HP‚ÌUI
     [SerializeField]
     Canvas canvas;
+    [SerializeField]
+    Canvas canvas1;
+
 
 
     public Slider slider;
     public Slider slider2;
     public Slider slider3;
     public Slider slider4;
+    public Slider slider5;
 
 
     private int Status;  //€”õ‚ª‚Å‚«‚½‚©‚Ç‚¤‚©‚ð”»’f‚·‚é•Ï”
@@ -34,10 +39,11 @@ public class OnCollisionEnter_Player : MonoBehaviour
     int battery2Flag = 0;
     int battery3Flag = 0;
     int battery4Flag = 0;
+    int battery5Flag = 0;
 
     void ClearScene()
     {
-        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1) 
+        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1 && battery5Flag == 1)  
         {
             SceneManager.LoadScene("ClearScene");
         }
@@ -57,6 +63,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         spotLightScript_2.SetspotlightFlag_2(false);
         spotLightScript_3.SetspotlightFlag_3(false);
         spotLightScript_4.SetspotlightFlag_4(false);
+        spotLightScript_5.SetspotlightFlag_5(false);
 
         
         if (collision.gameObject.name == "battery-1")
@@ -109,7 +116,13 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
         if (collision.gameObject.name == "battery-5")
         {
-            
+            spotLightScript_5.SetspotlightFlag_5(true);
+            slider5.value += 0.01f;
+            if (slider5.value >= 1)
+            {
+                battery5Flag = 1;
+                slider5.value = 1;
+            }
         }
         if (collision.gameObject.name == "battery-6")
         {
@@ -137,10 +150,12 @@ public class OnCollisionEnter_Player : MonoBehaviour
         if (collider.gameObject.name == "MoveFirstFloor")
         {
             canvas.enabled = false;
+            canvas1.enabled = true;
         }
         if (collider.gameObject.name == "MoveSecondFloor")
         {
             canvas.enabled = true;
+            canvas1.enabled = false;
         }
     }
 
@@ -151,6 +166,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
         slider2.value = 0;
         slider3.value = 0;
         slider4.value = 0;
+        slider5.value = 0;
+        canvas1.enabled = false;
     }
 
 }

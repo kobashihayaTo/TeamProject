@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    float speed = 5.0f;
     Rigidbody rb;
 
     [SerializeField]
@@ -48,5 +47,10 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
+    }
+
+    public Vector3 PlayerTransform()
+    {
+        return rb.transform.position;
     }
 }

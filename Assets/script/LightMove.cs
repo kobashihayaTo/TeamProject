@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class LightMove : MonoBehaviour
     SpotLightManeger spotLightManeger;
     [SerializeField]
     public Slider playerSlider;
+    [SerializeField]
+    PlayerMove playermove;
 
     bool lightFlag = false;
     bool deathFlag = false;
@@ -27,7 +30,7 @@ public class LightMove : MonoBehaviour
 
     void Start()
     {
-        playerlight.intensity = 20.0f;
+        playerlight.intensity = 1.0f;
         playerSlider.value = 1.0f;
     }
 
@@ -35,7 +38,7 @@ public class LightMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F)|| Input.GetKey(KeyCode.Return))
         {
-            playerlight.intensity += 0.02f;
+            playerlight.intensity += 0.002f;
             playerSlider.value += 0.002f;
             lightFlag = true;
         }
@@ -43,10 +46,28 @@ public class LightMove : MonoBehaviour
         {
             lightFlag = false;
             playerSlider.value -= 0.001f;
-            playerlight.intensity -= 0.02f;
+            playerlight.intensity -= 0.001f;
         }
 
-        if(playerlight.intensity==1)
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            transform.position = new Vector3(playermove.PlayerTransform().x, 19.5f, playermove.PlayerTransform().z + 1);
+        }
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
+            transform.position = new Vector3(playermove.PlayerTransform().x,19.5f, playermove.PlayerTransform().z - 1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            transform.position = new Vector3(playermove.PlayerTransform().x - 1, 19.5f, playermove.PlayerTransform().z);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.position = new Vector3(playermove.PlayerTransform().x + 1, 19.5f, playermove.PlayerTransform().z);
+
+        }
+
+        if (playerlight.intensity==1)
         {
             Debug.Log("1‚É‚È‚Á‚½");
         }
@@ -65,9 +86,9 @@ public class LightMove : MonoBehaviour
             deathFlag = false;
         }
         //‹­“x•Ï‚¦‚½‚¢‚Æ‚«‚Í‚±‚±‚Ì”š‚ğ‚¢‚¶‚Á‚Ä
-        if (playerlight.intensity >= 20)
+        if (playerlight.intensity >= 1)
         {
-            playerlight.intensity = 20;
+            playerlight.intensity = 1;
         }
         Scene();
     }

@@ -22,11 +22,9 @@ public class ChangeScene : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("ChangeSelectScene");
                 Timer = 0;
             }
         }
-        
-
     }
 }

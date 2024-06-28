@@ -38,15 +38,15 @@ public class LightMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F)|| Input.GetKey(KeyCode.Return))
         {
-            playerlight.intensity += 0.002f;
-            playerSlider.value += 0.002f;
+            playerlight.intensity += 0.0002f;
+            playerSlider.value += 0.0002f;
             lightFlag = true;
         }
         else
         {
             lightFlag = false;
-            playerSlider.value -= 0.001f;
-            playerlight.intensity -= 0.001f;
+            playerSlider.value -= 0.0001f;
+            playerlight.intensity -= 0.0001f;
         }
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
@@ -78,7 +78,7 @@ public class LightMove : MonoBehaviour
 
         if (playerlight.intensity == 0) 
         {
-            //deathFlag = true;
+            deathFlag = true;
 
         }
         else

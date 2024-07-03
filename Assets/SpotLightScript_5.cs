@@ -13,8 +13,6 @@ public class SpotLightScript_5 : MonoBehaviour
     Light spotlight3;
     [SerializeField]
     Light spotlight4;
-    [SerializeField]
-    Light spotlight5;
 
     //バッテリーの個数に応じて増やす
     bool spotlightFlag_5;
@@ -24,7 +22,6 @@ public class SpotLightScript_5 : MonoBehaviour
     public float spotLightIntensity5_2;
     public float spotLightIntensity5_3;
     public float spotLightIntensity5_4;
-    public float spotLightIntensity5_5;
 
     void Start()
     {
@@ -40,7 +37,6 @@ public class SpotLightScript_5 : MonoBehaviour
             spotlight2.intensity += 0.01f;
             spotlight3.intensity += 0.01f;
             spotlight4.intensity += 0.01f;
-            spotlight5.intensity += 0.01f;
         }
 
         if (spotlight1.intensity >= spotLightIntensity5_1)
@@ -61,11 +57,6 @@ public class SpotLightScript_5 : MonoBehaviour
         if (spotlight4.intensity >= spotLightIntensity5_4)
         {
             spotlight4.intensity = spotLightIntensity5_4;
-        }
-
-        if (spotlight5.intensity >= spotLightIntensity5_5)
-        {
-            spotlight5.intensity = spotLightIntensity5_5;
         }
     }
 

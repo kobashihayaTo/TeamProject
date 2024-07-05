@@ -18,19 +18,34 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public SpotLightScript_4 spotLightScript_4;
     [SerializeField]
     public SpotLightScript_5 spotLightScript_5;
+    //ステージのスポットライト
+    [SerializeField]
+    public Light StageLight_1;
+
+    //バッテリーのスポットライト
+    [SerializeField]
+    public Light BatteryLight_1;
+    [SerializeField]
+    public Light BatteryLight_2;
+    [SerializeField]
+    public Light BatteryLight_3;
+    [SerializeField]
+    public Light BatteryLight_4;
+    [SerializeField]
+    public Light BatteryLight_5;
+
     //HPのUI
     [SerializeField]
     Canvas canvas;
     [SerializeField]
     Canvas canvas1;
-
-
-
+    //HPとバッテリーのゲージ
     public Slider slider;
     public Slider slider2;
     public Slider slider3;
     public Slider slider4;
     public Slider slider5;
+
 
 
     private int Status;  //準備ができたかどうかを判断する変数
@@ -40,6 +55,35 @@ public class OnCollisionEnter_Player : MonoBehaviour
     int battery3Flag = 0;
     int battery4Flag = 0;
     int battery5Flag = 0;
+
+    void LightShine()
+    {
+        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1 )
+        {
+            StageLight_1.intensity = 50;
+        }
+
+        if (battery1Flag == 1) 
+        {
+            BatteryLight_1.intensity = 5;
+        }
+        if (battery2Flag == 1)
+        {
+            BatteryLight_2.intensity = 5;
+        }
+        if (battery3Flag == 1)
+        {
+            BatteryLight_3.intensity = 5;
+        }
+        if (battery4Flag == 1)
+        {
+            BatteryLight_4.intensity = 5;
+        }
+        if (battery5Flag == 1)
+        {
+            BatteryLight_5.intensity = 5;
+        }
+    }
 
     void ClearScene()
     {
@@ -113,7 +157,6 @@ public class OnCollisionEnter_Player : MonoBehaviour
                 slider4.value = 1;
             }
         }
-
         if (collision.gameObject.name == "battery-5")
         {
             spotLightScript_5.SetspotlightFlag_5(true);
@@ -131,6 +174,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         #endregion
         ClearScene();
+        LightShine();
     }
     //敵との当たり判定
     private void OnTriggerStay(Collider other)

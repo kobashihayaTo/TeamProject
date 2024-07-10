@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 //UI使うときは忘れずに。
 using UnityEngine.UI;
 
+//オンコリジョンの処理
 public class OnCollisionEnter_Player : MonoBehaviour
 {
     [SerializeField]

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
 
+    //巡回地点を格納する場所
     public Transform[] goals;
 
     private int destNum = 0;
@@ -13,6 +15,9 @@ public class EnemyMove : MonoBehaviour
     private int randomPatrol = 0;
 
     public NavMeshAgent agent;
+
+    [SerializeField]
+    private SearchCollision searchCollision;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +32,17 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(agent.remainingDistance < 0.1f)
+        if (searchCollision.GetSearchFlag() == false)
         {
-            NextGoal();
+            if (agent.remainingDistance < 0.1f)
+            {
+                NextGoal();
+            }
         }
+        
     }
 
+    //巡回地点についたら新しい巡回地点に向かう
     void NextGoal()
     {
         destNum = Random.Range(0,3);
@@ -46,4 +56,5 @@ public class EnemyMove : MonoBehaviour
 
         Debug.Log(destNum);
     }
+    
 }

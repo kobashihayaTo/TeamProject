@@ -2192,6 +2192,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591503211389214801, guid: 6e856ff303eb5b849811f0649742a681, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6459072047640810759, guid: 6e856ff303eb5b849811f0649742a681, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -4425,6 +4429,7 @@ MonoBehaviour:
   - {fileID: 1294090014}
   - {fileID: 1880336612}
   agent: {fileID: 1352640817}
+  searchCollision: {fileID: 0}
 --- !u!195 &1352640817
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5159,6 +5164,21 @@ MonoBehaviour:
   - {fileID: 1982664410}
   - {fileID: 1722043883}
   agent: {fileID: 1584302435}
+  searchCollision: {fileID: 2140148343}
+--- !u!114 &1584302441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584302434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bec5b766965494db80badc1ae06df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchCollision: {fileID: 2140148343}
+  player: {fileID: 1227515015}
 --- !u!1 &1599872819
 GameObject:
   m_ObjectHideFlags: 0
@@ -7328,6 +7348,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133979184}
   m_CullTransparentMesh: 1
+--- !u!1 &2140148338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6760884186243928769, guid: 6e856ff303eb5b849811f0649742a681, type: 3}
+  m_PrefabInstance: {fileID: 762084823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140148343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140148338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bcb813ae32fd244b99f3df9559e1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7082039286485692592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7342,6 +7379,10 @@ PrefabInstance:
     - target: {fileID: 7082039285165842245, guid: a6ebf08ca2885d9458ba7224a34ee2d0, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082039285165842245, guid: a6ebf08ca2885d9458ba7224a34ee2d0, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7082039285165842246, guid: a6ebf08ca2885d9458ba7224a34ee2d0, type: 3}
       propertyPath: m_Mass

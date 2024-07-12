@@ -85,10 +85,12 @@ public class StageChangeScript : MonoBehaviour
             else if (count == 1)
             {
                 ScreenTransition();
+                SceneManager.LoadScene("Stage2Scene");
             }
             else if (count == 2)
             {
                 ScreenTransition();
+                SceneManager.LoadScene("Stage3Scene");
             }
         }
        // ScreenTransition();

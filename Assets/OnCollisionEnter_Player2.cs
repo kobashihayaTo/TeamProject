@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //UI使うときは忘れずに。
 using UnityEngine.UI;
 
-//オンコリジョンの処理
-public class OnCollisionEnter_Player : MonoBehaviour
+public class OnCollisionEnter_Player2 : MonoBehaviour
 {
     [SerializeField]
     public SpotLightScript spotLightScript;
     [SerializeField]
     public SpotLightScript_2 spotLightScript_2;
-    [SerializeField] 
+    [SerializeField]
     public SpotLightScript_3 spotLightScript_3;
     [SerializeField]
     public SpotLightScript_4 spotLightScript_4;
     [SerializeField]
     public SpotLightScript_5 spotLightScript_5;
+    [SerializeField]
+    public SpotLightScript_6 spotLightScript_6;
+    [SerializeField]
+    public SpotLightScript_7 spotLightScript_7;
     //ステージのスポットライト
     [SerializeField]
     public Light StageLight_1;
@@ -36,6 +38,10 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public Light BatteryLight_4;
     [SerializeField]
     public Light BatteryLight_5;
+    [SerializeField]
+    public Light BatteryLight_6;
+    [SerializeField]
+    public Light BatteryLight_7;
 
     //HPのUI
     [SerializeField]
@@ -48,7 +54,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
     public Slider slider3;
     public Slider slider4;
     public Slider slider5;
-
+    public Slider slider6;
+    public Slider slider7;
 
 
     private int Status;  //準備ができたかどうかを判断する変数
@@ -58,20 +65,21 @@ public class OnCollisionEnter_Player : MonoBehaviour
     int battery3Flag = 0;
     int battery4Flag = 0;
     int battery5Flag = 0;
+    int battery6Flag = 0;
+    int battery7Flag = 0;
 
     void LightShine()
     {
-        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1 )
+        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1)
         {
             StageLight_1.intensity = 50;
         }
-        if(battery5Flag==1)
+        if (battery5Flag == 1 && battery6Flag == 1 && battery7Flag == 1 )
         {
             StageLight_2.intensity = 50;
         }
 
-
-        if (battery1Flag == 1) 
+        if (battery1Flag == 1)
         {
             BatteryLight_1.intensity = 5;
         }
@@ -91,11 +99,20 @@ public class OnCollisionEnter_Player : MonoBehaviour
         {
             BatteryLight_5.intensity = 5;
         }
+        if (battery6Flag == 1)
+        {
+            BatteryLight_6.intensity = 5;
+        }
+        if (battery7Flag == 1)
+        {
+            BatteryLight_7.intensity = 5;
+        }
     }
 
     void ClearScene()
     {
-        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1 && battery5Flag == 1)  
+        if (battery1Flag == 1 && battery2Flag == 1 && battery3Flag == 1 && battery4Flag == 1 && battery5Flag == 1
+            && battery6Flag == 1 && battery7Flag == 1)
         {
             SceneManager.LoadScene("ClearScene");
         }
@@ -116,8 +133,10 @@ public class OnCollisionEnter_Player : MonoBehaviour
         spotLightScript_3.SetspotlightFlag_3(false);
         spotLightScript_4.SetspotlightFlag_4(false);
         spotLightScript_5.SetspotlightFlag_5(false);
+        spotLightScript_6.SetspotlightFlag_6(false);
+        spotLightScript_7.SetspotlightFlag_7(false);
 
-        
+
         if (collision.gameObject.name == "battery-1")
         {
             spotLightScript.SetspotlightFlag(true);
@@ -138,7 +157,7 @@ public class OnCollisionEnter_Player : MonoBehaviour
 
             if (slider2.value >= 1)
             {
-                
+
                 battery2Flag = 1;
                 slider2.value = 1;
             }
@@ -177,8 +196,23 @@ public class OnCollisionEnter_Player : MonoBehaviour
         }
         if (collision.gameObject.name == "battery-6")
         {
-            //Debug.Log("当たった!");
-            
+            spotLightScript_6.SetspotlightFlag_6(true);
+            slider6.value += 0.01f;
+            if (slider6.value >= 1)
+            {
+                battery6Flag = 1;
+                slider6.value = 1;
+            }
+        }
+        if (collision.gameObject.name == "battery-7")
+        {
+            spotLightScript_7.SetspotlightFlag_7(true);
+            slider7.value += 0.01f;
+            if (slider7.value >= 1)
+            {
+                battery7Flag = 1;
+                slider7.value = 1;
+            }
         }
         #endregion
         ClearScene();
@@ -219,6 +253,8 @@ public class OnCollisionEnter_Player : MonoBehaviour
         slider3.value = 0;
         slider4.value = 0;
         slider5.value = 0;
+        slider6.value = 0;
+        slider7.value = 0;
         canvas1.enabled = false;
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7082039285165842246}
   - component: {fileID: 7082039285165842251}
   - component: {fileID: 7082039285165842252}
+  - component: {fileID: 1450635760807552641}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60967e0a132918749984e6b06f4ca036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightmove: {fileID: 0}
 --- !u!114 &7082039285165842252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,4 +140,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0fe40fe0ba58c449baa96bf5b1e9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RepairManger: {fileID: 0}
+  spotLightScript: {fileID: 0}
+  spotLightScript_2: {fileID: 0}
+  spotLightScript_3: {fileID: 0}
+  spotLightScript_4: {fileID: 0}
+  spotLightScript_5: {fileID: 0}
+  StageLight_1: {fileID: 0}
+  BatteryLight_1: {fileID: 0}
+  BatteryLight_2: {fileID: 0}
+  BatteryLight_3: {fileID: 0}
+  BatteryLight_4: {fileID: 0}
+  BatteryLight_5: {fileID: 0}
+  canvas: {fileID: 0}
+  canvas1: {fileID: 0}
+  slider: {fileID: 0}
+  slider2: {fileID: 0}
+  slider3: {fileID: 0}
+  slider4: {fileID: 0}
+  slider5: {fileID: 0}
+--- !u!114 &1450635760807552641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082039285165842245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cdf2f2eb6c2c349a0691a6baca31ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotLightScript: {fileID: 0}
+  spotLightScript_2: {fileID: 0}
+  spotLightScript_3: {fileID: 0}
+  spotLightScript_4: {fileID: 0}
+  spotLightScript_5: {fileID: 0}
+  spotLightScript_6: {fileID: 0}
+  spotLightScript_7: {fileID: 0}
+  StageLight_1: {fileID: 0}
+  BatteryLight_1: {fileID: 0}
+  BatteryLight_2: {fileID: 0}
+  BatteryLight_3: {fileID: 0}
+  BatteryLight_4: {fileID: 0}
+  BatteryLight_5: {fileID: 0}
+  BatteryLight_6: {fileID: 0}
+  BatteryLight_7: {fileID: 0}
+  canvas: {fileID: 0}
+  canvas1: {fileID: 0}
+  slider: {fileID: 0}
+  slider2: {fileID: 0}
+  slider3: {fileID: 0}
+  slider4: {fileID: 0}
+  slider5: {fileID: 0}
+  slider6: {fileID: 0}
+  slider7: {fileID: 0}

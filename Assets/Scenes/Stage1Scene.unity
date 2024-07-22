@@ -7722,5 +7722,6 @@ PrefabInstance:
       propertyPath: spotLightScript_5
       value: 
       objectReference: {fileID: 2097057626}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1450635760807552641, guid: a6ebf08ca2885d9458ba7224a34ee2d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6ebf08ca2885d9458ba7224a34ee2d0, type: 3}

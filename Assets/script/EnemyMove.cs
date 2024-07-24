@@ -45,7 +45,7 @@ public class EnemyMove : MonoBehaviour
     //巡回地点についたら新しい巡回地点に向かう
     void NextGoal()
     {
-        destNum = Random.Range(0,3);
+        destNum += 1;
 
         if(destNum == 3)
         {

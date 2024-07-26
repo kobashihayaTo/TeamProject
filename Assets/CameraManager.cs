@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraManager : MonoBehaviour
+{
+    [SerializeField, Header("êUìÆÇ∑ÇÈéûä‘")]
+    private float _shakeTime;
+    [SerializeField, Header("êUìÆÇÃëÂÇ´Ç≥")]
+    private float _shakeMagnitude;
+
+    private LightMove _lightmove;
+    private Vector3 _initPos;
+    private float _shakeCount;
+    private float _currentLightMove;
+    // Start is called before the first frame update
+    void Start()
+    {
+        _lightmove = FindObjectOfType<LightMove>();
+        _currentLightMove = _lightmove.Getintensity();
+        _initPos = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _ShakeCheck();
+        //_FollowPlayer();
+    }
+
+    private void _ShakeCheck()
+    {
+        if (_currentLightMove != _lightmove.Getintensity())
+        {
+            _currentLightMove = _lightmove.Getintensity();
+            _shakeCount = 0.0f;
+            StartCoroutine(_Shake());
+        }
+    }
+    IEnumerator _Shake()
+    {
+        Vector3 initPos = transform.position;
+
+        while (_shakeCount < _shakeTime)
+        {
+            float x = initPos.x + Random.Range(-_shakeMagnitude, _shakeMagnitude);
+            float y = initPos.y + Random.Range(-_shakeMagnitude, _shakeMagnitude);
+            transform.position = new Vector3(x, y, initPos.z);
+
+            _shakeCount += Time.deltaTime;
+
+            yield return null;
+        }
+        transform.position = initPos;
+    }
+    private void _FollowPlayer()
+    {
+        if (_lightmove == null) return;
+        float x = _lightmove.transform.position.x;
+        float y = _lightmove.transform.position.y;
+        x = Mathf.Clamp(x, _initPos.x, Mathf.Infinity);
+        y = Mathf.Clamp(y, _initPos.y, Mathf.Infinity);
+        transform.position = new Vector3(x, y, transform.position.z);
+    }
+}

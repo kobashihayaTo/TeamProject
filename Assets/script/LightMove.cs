@@ -103,5 +103,9 @@ public class LightMove : MonoBehaviour
     {
         return deathFlag;
     }
+    public float Getintensity()
+    {
+        return playerlight.intensity;
+    }
 
 }

@@ -36,7 +36,7 @@ public class LightMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.F)|| Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Space)|| Input.GetKey(KeyCode.Return))
         {
             playerlight.intensity += 0.0002f;
             playerSlider.value += 0.0002f;

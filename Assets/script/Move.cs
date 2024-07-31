@@ -13,14 +13,14 @@ public class Move : MonoBehaviour
     {
         if (collider.gameObject.name == "MoveFirstFloor") 
         {
-            //Debug.Log("“–‚½‚Á‚½!");
+            Debug.Log("“–‚½‚Á‚½!");
             cameraMove.CameraMoveTrigger_Second();
             transform.position = new Vector3(Secondpos.x, Secondpos.y, Secondpos.z);
             
         }
         if (collider.gameObject.name == "MoveSecondFloor")
         {
-            //Debug.Log("“–‚½‚Á‚½!");
+            Debug.Log("“–‚½‚Á‚½!");
             cameraMove.CameraMoveTrigger_First();
             transform.position = new Vector3(Firstpos.x, Firstpos.y, Firstpos.z);
         }

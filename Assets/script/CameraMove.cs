@@ -9,11 +9,13 @@ public class CameraMove : MonoBehaviour
 
     public void CameraMoveTrigger_Second()
     {
+        Debug.Log("•Ï‚í‚Á‚½");
         transform.position = CameraSecondpos;
     }
 
     public void CameraMoveTrigger_First()
     {
+        Debug.Log("•Ï‚í‚Á‚½");
         transform.position = CameraFirstpos;
     }
 }
